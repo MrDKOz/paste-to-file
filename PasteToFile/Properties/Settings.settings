@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PasteToFile.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TextFilenameMask" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%y%mo%d%h%mi%s-Text</Value>
+    </Setting>
+    <Setting Name="ImageFilenameMask" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%y%mo%d%h%mi%s-Image</Value>
+    </Setting>
+    <Setting Name="TextFilenameExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">txt</Value>
+    </Setting>
+    <Setting Name="ImageFilenameExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">png</Value>
+    </Setting>
+    <Setting Name="TextChooseExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">false</Value>
+    </Setting>
+    <Setting Name="ImageChooseExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">true</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
