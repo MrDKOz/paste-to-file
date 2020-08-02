@@ -31,8 +31,7 @@
             this.btnResetToSaved = new System.Windows.Forms.Button();
             this.btnCancelAndClose = new System.Windows.Forms.Button();
             this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.chkChooseExtensionEverytime = new System.Windows.Forms.CheckBox();
-            this.tboxFileExtension = new System.Windows.Forms.TextBox();
+            this.chkAskForOptionsEverytime = new System.Windows.Forms.CheckBox();
             this.lblFileExtension = new System.Windows.Forms.Label();
             this.lblInformation = new System.Windows.Forms.Label();
             this.lblFilenameMaskPreview = new System.Windows.Forms.Label();
@@ -43,11 +42,12 @@
             this.lnkTwitter = new System.Windows.Forms.LinkLabel();
             this.lnkGitHub = new System.Windows.Forms.LinkLabel();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.cboxExtension = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnResetToSaved
             // 
-            this.btnResetToSaved.Location = new System.Drawing.Point(86, 125);
+            this.btnResetToSaved.Location = new System.Drawing.Point(104, 125);
             this.btnResetToSaved.Name = "btnResetToSaved";
             this.btnResetToSaved.Size = new System.Drawing.Size(75, 23);
             this.btnResetToSaved.TabIndex = 21;
@@ -57,7 +57,7 @@
             // 
             // btnCancelAndClose
             // 
-            this.btnCancelAndClose.Location = new System.Drawing.Point(323, 125);
+            this.btnCancelAndClose.Location = new System.Drawing.Point(328, 125);
             this.btnCancelAndClose.Name = "btnCancelAndClose";
             this.btnCancelAndClose.Size = new System.Drawing.Size(92, 23);
             this.btnCancelAndClose.TabIndex = 20;
@@ -75,22 +75,15 @@
             this.btnSaveChanges.UseVisualStyleBackColor = true;
             this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
-            // chkChooseExtensionEverytime
+            // chkAskForOptionsEverytime
             // 
-            this.chkChooseExtensionEverytime.AutoSize = true;
-            this.chkChooseExtensionEverytime.Location = new System.Drawing.Point(250, 100);
-            this.chkChooseExtensionEverytime.Name = "chkChooseExtensionEverytime";
-            this.chkChooseExtensionEverytime.Size = new System.Drawing.Size(165, 17);
-            this.chkChooseExtensionEverytime.TabIndex = 29;
-            this.chkChooseExtensionEverytime.Text = "Choose Extension on Paste";
-            this.chkChooseExtensionEverytime.UseVisualStyleBackColor = true;
-            // 
-            // tboxFileExtension
-            // 
-            this.tboxFileExtension.Location = new System.Drawing.Point(250, 72);
-            this.tboxFileExtension.Name = "tboxFileExtension";
-            this.tboxFileExtension.Size = new System.Drawing.Size(146, 22);
-            this.tboxFileExtension.TabIndex = 28;
+            this.chkAskForOptionsEverytime.AutoSize = true;
+            this.chkAskForOptionsEverytime.Location = new System.Drawing.Point(145, 96);
+            this.chkAskForOptionsEverytime.Name = "chkAskForOptionsEverytime";
+            this.chkAskForOptionsEverytime.Size = new System.Drawing.Size(275, 17);
+            this.chkAskForOptionsEverytime.TabIndex = 29;
+            this.chkAskForOptionsEverytime.Text = "Always ask for settings on paste for this file type";
+            this.chkAskForOptionsEverytime.UseVisualStyleBackColor = true;
             // 
             // lblFileExtension
             // 
@@ -183,25 +176,34 @@
             // lblVersion
             // 
             this.lblVersion.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblVersion.Location = new System.Drawing.Point(323, 151);
+            this.lblVersion.Location = new System.Drawing.Point(331, 151);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblVersion.Size = new System.Drawing.Size(92, 13);
             this.lblVersion.TabIndex = 34;
             this.lblVersion.Text = "<Version>";
             // 
+            // cboxExtension
+            // 
+            this.cboxExtension.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxExtension.FormattingEnabled = true;
+            this.cboxExtension.Location = new System.Drawing.Point(250, 72);
+            this.cboxExtension.Name = "cboxExtension";
+            this.cboxExtension.Size = new System.Drawing.Size(121, 21);
+            this.cboxExtension.TabIndex = 35;
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 169);
+            this.ClientSize = new System.Drawing.Size(424, 171);
+            this.Controls.Add(this.cboxExtension);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lnkGitHub);
             this.Controls.Add(this.lnkTwitter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboxFileTypes);
-            this.Controls.Add(this.chkChooseExtensionEverytime);
-            this.Controls.Add(this.tboxFileExtension);
+            this.Controls.Add(this.chkAskForOptionsEverytime);
             this.Controls.Add(this.lblFileExtension);
             this.Controls.Add(this.lblInformation);
             this.Controls.Add(this.lblFilenameMaskPreview);
@@ -211,8 +213,12 @@
             this.Controls.Add(this.btnCancelAndClose);
             this.Controls.Add(this.btnSaveChanges);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(440, 210);
+            this.MinimumSize = new System.Drawing.Size(440, 210);
             this.Name = "Config";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Paste to File Configuration";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -224,8 +230,7 @@
         private System.Windows.Forms.Button btnResetToSaved;
         private System.Windows.Forms.Button btnCancelAndClose;
         private System.Windows.Forms.Button btnSaveChanges;
-        private System.Windows.Forms.CheckBox chkChooseExtensionEverytime;
-        private System.Windows.Forms.TextBox tboxFileExtension;
+        private System.Windows.Forms.CheckBox chkAskForOptionsEverytime;
         private System.Windows.Forms.Label lblFileExtension;
         private System.Windows.Forms.Label lblInformation;
         private System.Windows.Forms.Label lblFilenameMaskPreview;
@@ -236,6 +241,7 @@
         private System.Windows.Forms.LinkLabel lnkTwitter;
         private System.Windows.Forms.LinkLabel lnkGitHub;
         private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.ComboBox cboxExtension;
     }
 }
 

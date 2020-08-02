@@ -74,24 +74,24 @@ namespace PasteToFile.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("false")]
-        public string TextChooseExtension {
+        public string TextShowConfig {
             get {
-                return ((string)(this["TextChooseExtension"]));
+                return ((string)(this["TextShowConfig"]));
             }
             set {
-                this["TextChooseExtension"] = value;
+                this["TextShowConfig"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("true")]
-        public string ImageChooseExtension {
+        public string ImageShowConfig {
             get {
-                return ((string)(this["ImageChooseExtension"]));
+                return ((string)(this["ImageShowConfig"]));
             }
             set {
-                this["ImageChooseExtension"] = value;
+                this["ImageShowConfig"] = value;
             }
         }
     }

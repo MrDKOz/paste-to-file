@@ -1,6 +1,7 @@
 ﻿using PasteToFile.Helpers;
 using System;
 using System.Windows.Forms;
+using PasteToFile.DataTypes;
 
 namespace PasteToFile
 {
@@ -29,10 +30,29 @@ namespace PasteToFile
         /// </summary>
         private void LoadFileTypes()
         {
-            foreach (FileType fileType in Enum.GetValues(typeof(FileType)))
-                cboxFileTypes.Items.Add(fileType);
+            cboxFileTypes.DataSource = Output.FileTypes();
+        }
 
-            cboxFileTypes.SelectedIndex = 0;
+        /// <summary>
+        /// Loads the supported extensions for the selected file type.
+        /// </summary>
+        private void LoadExtensions()
+        {
+            var bindingSource = new BindingSource();
+
+            switch (_fileTypeFocused)
+            {
+                case FileType.Text:
+                    bindingSource.DataSource = Output.TextExtensions();
+                    break;
+                case FileType.Image:
+                    bindingSource.DataSource = Output.ImageExtensions();
+                    break;
+                default:
+                    throw new Exception("Invalid File Type passed when fetching extensions.");
+            }
+
+            cboxExtension.DataSource = bindingSource;
         }
 
         /// <summary>
@@ -40,14 +60,16 @@ namespace PasteToFile
         /// </summary>
         private void LoadAndApplySettings()
         {
+            LoadExtensions();
+
             _settings = new Settings(_fileTypeFocused);
 
             lblInformation.Text = $"Settings related to the output when {_fileTypeFocused} data is detected in your clipboard.";
 
             tboxFilenameMask.Text = _settings.FilenameMask;
             lblFilenameMaskPreview.Text = _filenameMask.Generate(tboxFilenameMask.Text);
-            tboxFileExtension.Text = _settings.FilenameExtension;
-            chkChooseExtensionEverytime.Checked = _settings.ChooseExtension;
+            cboxExtension.Text = _settings.FilenameExtension;
+            chkAskForOptionsEverytime.Checked = _settings.ShowConfig;
         }
 
         /// <summary>
@@ -84,8 +106,8 @@ namespace PasteToFile
             if (dlgResult != DialogResult.Yes) return;
 
             _settings.FilenameMask = tboxFilenameMask.Text;
-            _settings.FilenameExtension = tboxFileExtension.Text;
-            _settings.ChooseExtension = chkChooseExtensionEverytime.Checked;
+            _settings.FilenameExtension = cboxExtension.Text;
+            _settings.ShowConfig = chkAskForOptionsEverytime.Checked;
 
             _settings.Save();
         }

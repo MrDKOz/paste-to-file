@@ -1,4 +1,5 @@
 ﻿using System;
+using PasteToFile.DataTypes;
 
 namespace PasteToFile.Helpers
 {
@@ -21,12 +22,12 @@ namespace PasteToFile.Helpers
                 case FileType.Text:
                     Properties.Settings.Default.TextFilenameMask = filenameMask;
                     Properties.Settings.Default.TextFilenameExtension = filenameExtension;
-                    Properties.Settings.Default.TextChooseExtension = chooseExtension.ToString();
+                    Properties.Settings.Default.TextShowConfig = showConfig.ToString();
                     break;
                 case FileType.Image:
                     Properties.Settings.Default.ImageFilenameMask = filenameMask;
                     Properties.Settings.Default.ImageFilenameExtension = filenameExtension;
-                    Properties.Settings.Default.ImageChooseExtension = chooseExtension.ToString();
+                    Properties.Settings.Default.ImageShowConfig = showConfig.ToString();
                     break;
             }
 
@@ -69,22 +70,22 @@ namespace PasteToFile.Helpers
             set => filenameExtension = value;
         }
 
-        private bool chooseExtension { get; set; }
-        public bool ChooseExtension
+        private bool showConfig { get; set; }
+        public bool ShowConfig
         {
             get
             {
                 switch (_fileType)
                 {
                     case FileType.Text:
-                        return Convert.ToBoolean(Properties.Settings.Default.TextChooseExtension);
+                        return Convert.ToBoolean(Properties.Settings.Default.TextShowConfig);
                     case FileType.Image:
-                        return Convert.ToBoolean(Properties.Settings.Default.ImageChooseExtension);
+                        return Convert.ToBoolean(Properties.Settings.Default.ImageShowConfig);
                     default:
                         return false;
                 }
             }
-            set => chooseExtension = value;
+            set => showConfig = value;
         }
 
         private string mask { get; set; }

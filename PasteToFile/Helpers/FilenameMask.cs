@@ -3,15 +3,6 @@ using System.Text;
 
 namespace PasteToFile.Helpers
 {
-    /// <summary>
-    /// The file types available to use.
-    /// </summary>
-    public enum FileType
-    {
-        Text,
-        Image
-    }
-
     public class FilenameMask
     {
         //private readonly FileType _fileType;

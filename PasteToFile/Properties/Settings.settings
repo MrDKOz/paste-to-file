@@ -14,10 +14,10 @@
     <Setting Name="ImageFilenameExtension" Type="System.String" Scope="User">
       <Value Profile="(Default)">png</Value>
     </Setting>
-    <Setting Name="TextChooseExtension" Type="System.String" Scope="User">
+    <Setting Name="TextShowConfig" Type="System.String" Scope="User">
       <Value Profile="(Default)">false</Value>
     </Setting>
-    <Setting Name="ImageChooseExtension" Type="System.String" Scope="User">
+    <Setting Name="ImageShowConfig" Type="System.String" Scope="User">
       <Value Profile="(Default)">true</Value>
     </Setting>
   </Settings>
