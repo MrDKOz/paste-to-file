@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Config));
             this.btnResetToSaved = new System.Windows.Forms.Button();
             this.btnCancelAndClose = new System.Windows.Forms.Button();
             this.btnSaveChanges = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.lnkGitHub = new System.Windows.Forms.LinkLabel();
             this.lblVersion = new System.Windows.Forms.Label();
             this.cboxExtension = new System.Windows.Forms.ComboBox();
+            this.btnContextMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnResetToSaved
@@ -192,11 +194,22 @@
             this.cboxExtension.Size = new System.Drawing.Size(121, 21);
             this.cboxExtension.TabIndex = 35;
             // 
+            // btnContextMenu
+            // 
+            this.btnContextMenu.Location = new System.Drawing.Point(242, 6);
+            this.btnContextMenu.Name = "btnContextMenu";
+            this.btnContextMenu.Size = new System.Drawing.Size(178, 23);
+            this.btnContextMenu.TabIndex = 36;
+            this.btnContextMenu.Text = "Install Right Click Context Entry";
+            this.btnContextMenu.UseVisualStyleBackColor = true;
+            this.btnContextMenu.Click += new System.EventHandler(this.btnContextMenu_Click);
+            // 
             // Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(424, 171);
+            this.Controls.Add(this.btnContextMenu);
             this.Controls.Add(this.cboxExtension);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lnkGitHub);
@@ -213,6 +226,7 @@
             this.Controls.Add(this.btnCancelAndClose);
             this.Controls.Add(this.btnSaveChanges);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(440, 210);
             this.MinimumSize = new System.Drawing.Size(440, 210);
@@ -242,6 +256,7 @@
         private System.Windows.Forms.LinkLabel lnkGitHub;
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.ComboBox cboxExtension;
+        private System.Windows.Forms.Button btnContextMenu;
     }
 }
 

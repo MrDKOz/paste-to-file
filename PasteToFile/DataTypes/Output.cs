@@ -28,7 +28,9 @@ namespace PasteToFile.DataTypes
     public enum ImageFileExtension
     {
         png,
-        jpg
+        jpg,
+        bmp,
+        gif,
     }
 
     public static class Output

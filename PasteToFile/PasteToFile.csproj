@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>paste-to-file.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,6 +64,7 @@
       <DependentUpon>Config.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\FilenameMask.cs" />
+    <Compile Include="Helpers\ContextEntry.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="DataTypes\Text.cs" />
     <Compile Include="Program.cs" />
@@ -93,6 +97,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="paste-to-file.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

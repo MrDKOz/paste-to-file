@@ -6,8 +6,12 @@ using PasteToFile.DataTypes;
 
 namespace PasteToFile
 {
-    static class Program
+    internal static class Program
     {
+        // Output file type handlers
+        private static readonly Text Text = new Text();
+        private static readonly Image Image = new Image();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

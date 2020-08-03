@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileOutput));
             this.lblTitle = new System.Windows.Forms.Label();
             this.tboxFilename = new System.Windows.Forms.TextBox();
             this.lblFilename = new System.Windows.Forms.Label();
@@ -139,6 +140,7 @@
             this.Controls.Add(this.tboxFilename);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(325, 190);
             this.MinimumSize = new System.Drawing.Size(325, 190);

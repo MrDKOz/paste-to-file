@@ -10,6 +10,7 @@ namespace PasteToFile
         private FileType _fileTypeFocused = FileType.Text;
         private Settings _settings;
         private readonly FilenameMask _filenameMask = new FilenameMask();
+        private readonly ContextEntry _contextEntry = new ContextEntry();
 
         private readonly string _version = $"v{System.Reflection.Assembly.GetEntryAssembly()?.GetName().Version}";
 
@@ -64,6 +65,12 @@ namespace PasteToFile
 
             _settings = new Settings(_fileTypeFocused);
 
+            // Configure Install/Uninstall context entry button
+            btnContextMenu.Text = _contextEntry.CheckIfRegistered()
+                ? "Remove Right Click Context Entry"
+                : "Install Right Click Context Entry";
+
+            // General UI
             lblInformation.Text = $"Settings related to the output when {_fileTypeFocused} data is detected in your clipboard.";
 
             tboxFilenameMask.Text = _settings.FilenameMask;
@@ -151,6 +158,27 @@ namespace PasteToFile
                 linkClicked.Text == "@MrDKOz"
                 ? "https://twitter.com/mrdkoz"
                 : "https://github.com/MrDKOz/paste-to-file");
+        }
+
+        /// <summary>
+        /// Creates or removes the context entry, depending on if it already exists
+        /// </summary>
+        private void btnContextMenu_Click(object sender, EventArgs e)
+        {
+            string message = _contextEntry.CheckIfRegistered()
+                ? "Are you sure you wish to remove the right click context menu item?"
+                : "Are you sure you wish to create the right click context menu item?";
+
+            var dlgResult = MessageBox.Show(
+                message,
+                "Context Menu Entry",
+                MessageBoxButtons.YesNo);
+
+            if (dlgResult == DialogResult.Yes)
+            {
+                _contextEntry.Toggle();
+                LoadAndApplySettings();
+            }
         }
     }
 }

@@ -13,6 +13,9 @@ namespace PasteToFile
         private readonly Settings _settings;
         private readonly string _outputDirectory;
 
+        private readonly Text _text = new Text();
+        private readonly Image _image = new Image();
+
         public FileOutput(FileType fileType, string outputDirectory)
         {
             InitializeComponent();
@@ -25,6 +28,9 @@ namespace PasteToFile
             LoadSettings();
         }
 
+        /// <summary>
+        /// Loads the settings and configures the UI.
+        /// </summary>
         private void LoadSettings()
         {
             // Load UI data
@@ -71,12 +77,25 @@ namespace PasteToFile
                 return;
             }
 
-            var fullFilePath = Path.Combine(_outputDirectory, $"{tboxFilename.Text}.{cboxExtension.Text}");
-
             SetAsDefault();
 
-            File.WriteAllText(fullFilePath, Clipboard.GetText());
+            CreateFile();
             Close();
+        }
+
+        private void CreateFile()
+        {
+            var fullFilePath = Path.Combine(_outputDirectory, $"{tboxFilename.Text}.{cboxExtension.Text}");
+
+            switch (_fileTypeFocused)
+            {
+                case FileType.Text:
+                    _text.WriteOut(fullFilePath);
+                    break;
+                case FileType.Image:
+                    _image.WriteOut(fullFilePath);
+                    break;
+            }
         }
 
         /// <summary>

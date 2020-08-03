@@ -87,23 +87,5 @@ namespace PasteToFile.Helpers
             }
             set => showConfig = value;
         }
-
-        private string mask { get; set; }
-        public string Mask
-        {
-            get
-            {
-                switch (_fileType)
-                {
-                    case FileType.Text:
-                        return Properties.Settings.Default.TextFilenameMask;
-                    case FileType.Image:
-                        return Properties.Settings.Default.ImageFilenameMask;
-                    default:
-                        return string.Empty;
-                }
-            }
-            set => mask = value;
-        }
     }
 }
